@@ -1,5 +1,4 @@
-FROM agrigorev/zoomcamp-model:2025
-#FROM python:3.13.5-slim-bookworm
+FROM python:3.13.5-slim-bookworm
 
 WORKDIR /app
 
@@ -10,6 +9,8 @@ COPY uv.lock .
 COPY . .
 
 RUN pip install uv && uv sync --locked
+
+RUN uv --version
 
 # Copy the rest of your application code
 COPY . .
